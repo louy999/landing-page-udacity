@@ -56,7 +56,7 @@
 //************************* */
 //function for navbr
 // count becouse a plus id and section count
-countSection = 3;
+countSection = 4;
 // count becouse a plus id and nvabar count
 conutNavBar = 0;
 function createNav() {
@@ -67,10 +67,11 @@ function createNav() {
   let createLi = `<li><a class="menu__link" href="#section${conutNavBar}"data-nav='section ${conutNavBar}'>section ${conutNavBar}</a></li>`;
   nav.innerHTML += createLi;
 }
-createNav();
-createNav();
-createNav();
+let sectionList = document.querySelectorAll("section").length;
 
+for (i = 0; i < sectionList; i++) {
+  createNav();
+}
 //function for create section
 
 function addSection() {
@@ -138,10 +139,11 @@ function activeSection() {
       if (entry.isIntersecting) {
         entry.target.classList.add("your-active-class");
         a.classList.add("active");
-        window.location.href = `#${entry.target.id}`;
+        location.href = `#${entry.target.id}`;
       } else {
         entry.target.classList.remove("your-active-class");
         a.classList.remove("active");
+        location.hash = "";
       }
     });
   }, option);
@@ -173,6 +175,7 @@ function ToTop() {
       left: 0,
       behavior: "smooth",
     });
+    location.hash = "";
   });
 }
 ToTop();

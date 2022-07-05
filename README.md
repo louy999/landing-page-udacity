@@ -1,3 +1,3 @@
 # landing page project
 
-- I enjoyed
+- I enjoyed making this first project
